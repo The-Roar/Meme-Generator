@@ -7,3 +7,8 @@ body {
     height: 500px;
     width: 500px;
 }
+
+.gallery-img {
+    cursor: pointer;
+    height: 100px;
+}

@@ -11,6 +11,12 @@
     <div class="canvas-container">
         <canvas height="height" width="100"></canvas>
     </div>
+    <input type="text" class="meme-text" onkeyup="onMemeTxtChange(this)"></input>
+
+    <div class="gallery">
+        <img src="img/2.jpg" id="2" class="gallery-img" onclick="onImgChange(this)">
+        <img src="img/3.jpg" id="3" class="gallery-img" onclick="onImgChange(this)">
+    </div>
 
     <script src="js/meme-service.js"></script>
     <script src="js/meme-controller.js"></script>
