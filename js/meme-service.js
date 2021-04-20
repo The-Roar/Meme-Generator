@@ -24,17 +24,7 @@ var gImgs = getImgs();
 var gMeme = {
     selectedImgId: 2,
     selectedLineIdx: 0,
-    lines: [
-        {
-            txt: '',
-            size: 40,
-            align: 'center',
-            fillColor: 'white',
-            strokeColor: 'black',
-            x: 20,
-            y: 60,
-        }
-    ]
+    lines: []
 }
 
 function getImgs() {
@@ -53,14 +43,47 @@ function getMemeImgURL() {
     return gImgs[imgIdx].url;
 }
 
-function getLines() {
-    return gMeme.lines
-}
+function getGMeme() { return gMeme }
 
 function updateLineTxt(newStr) {
+    if (!gMeme.lines.length) addLine();
     gMeme.lines[gMeme.selectedLineIdx].txt = newStr;
 }
 
 function updateImg(newImgId) {
     gMeme.selectedImgId = newImgId;
+}
+
+function updateTxtSize(val) {
+    gMeme.lines[gMeme.selectedLineIdx].size += val;
+}
+
+function updateTxtPos(val) {
+    gMeme.lines[gMeme.selectedLineIdx].y += val;
+}
+
+function changeSelectedLine() {
+    if (gMeme.selectedLineIdx === gMeme.lines.length - 1) gMeme.selectedLineIdx = 0;
+    else gMeme.selectedLineIdx++;
+    return gMeme.lines[gMeme.selectedLineIdx].txt;
+}
+
+function addLine() {
+    gMeme.lines.push({
+        txt: '',
+        size: 40,
+        align: 'center',
+        fillColor: 'white',
+        strokeColor: 'black',
+        x: 20,
+        y: 60
+    })
+    gMeme.selectedLineIdx = gMeme.lines.length - 1;
+}
+
+function removeLine() {
+    gMeme.lines.splice(gMeme.selectedLineIdx, 1);
+    if (!gMeme.lines.length) return;
+    else if (gMeme.selectedLineIdx > 0) gMeme.selectedLineIdx--;
+    return gMeme.lines[gMeme.selectedLineIdx].txt;
 }
