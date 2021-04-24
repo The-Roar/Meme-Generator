@@ -1,18 +1,227 @@
+/* TYPOGRAPHY */
+
+@font-face {
+    font-family: montserrat-regular;
+    src: url(../font/Montserrat-Regular.ttf);
+}
+
+@font-face {
+    font-family: montserrat-thin;
+    src: url(../font/Montserrat-Thin.ttf);
+}
+
 body {
+    background-color: #e3e3e3;
     margin: 0;
 }
 
-button {
+header {
+    grid-area: 1 / 1 / 2 / 4;
+    background-color: #ff7f00;
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+    grid-area: 3 / 2 / 4 / 3;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    grid-area: 5 / 1 / 6 / 6;
+    background-color: #ff7f00;;
+}
+
+button, .txt-color-stroke, .txt-color-fill {
+    height: 3.8125em;
+    width: 3.8125em;
+    border-radius: 0.675em;
+    background-color: white;
+    border: 0px;
+    cursor: pointer;
+    margin: auto;
+}
+
+button:hover, .txt-color-stroke:hover, .txt-color-fill:hover {
+    background-color: rgb(160, 159, 159);
+}
+
+.grid-container {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 2.5em  1fr 2.5em;
+    grid-template-rows: 4em 1.5em 1fr 1.5em 12.36875em;
+}
+
+.logo {
+    height: 1.3875em;
+}
+
+
+.header-logo {
+    grid-area: 1 / 2 / 2 / 3;
+    margin: auto;
+    margin-inline-start: 0px;
     cursor: pointer;
 }
 
+.nav {
+    color: white;
+    display: flex;
+    margin: auto;
+    margin-inline-end: 0px;
+    grid-area: 1 / 2 / 2 /3;
+}
+
+.nav-opt {
+    display: flex;
+    font-family: montserrat-regular;
+    font-size: 1em;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.2;
+    letter-spacing: normal;
+    cursor: pointer;
+}
+
+.seperator {
+    background-color: #8a8a8a;
+    height: 1.6em;
+    width: 0.03125em;
+    margin-block-start: 15.5px;
+    margin-inline-start: 0.7em;
+    margin-inline-end: 0.7em;
+}
+
+
 .canvas-container {
-    margin: 0 auto;
-    height: 500px;
-    width: 500px;
+    display: flex;
+    height: 40.21875em;
+    width: 40.21875em;
+}
+
+.control-container {
+    display: flex;
+}
+
+.control-grid {
+    margin-inline-start: 30px;
+    /* margin-block-start: 30px; */
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(2, 1fr) 2.1875em repeat(2, 1fr) 20px 1fr;
+    gap: 0.9375em;
+}
+
+.txt-input {
+    border: 0px;
+    border-radius: 0.675em;
+    font-size: 1.25em;
+    padding-inline-start: 0.9em;
+    grid-area: 1 / 1 / 2 / -1;
+}
+
+.btn-txt-switch {
+    grid-area: 2 / 2 / 3 / 3;
+} 
+
+.btn-txt-add { grid-area: 2 / 3 / 3 / 4 }
+
+.btn-txt-remove { grid-area: 2 / 4 / 3 / 5 }
+
+.btn-size-up { grid-area: 4 / 1 / 5 / 2 }
+
+.btn-size-down { grid-area: 4 / 2 / 5 / 3 }
+
+.btn-pos-up { grid-area: 4 / 3 / 5 / 4 }
+
+.btn-pos-down { grid-area: 4 / 4 / 5 / 5 }
+
+.btn-align-left { grid-area: 5 / 1 / 6 / 2 }
+
+.btn-align-center { grid-area: 5 / 2 / 6 / 3 }
+
+.btn-align-right { grid-area: 5 / 3 / 6 / 4 }
+
+.txt-color-stroke { grid-area: 5 / 4 / 6 / 5; }
+
+.txt-color-fill { grid-area: 5 / 5 / 6 / 6 }
+
+.btn-download {
+    grid-area: 7 / 2 / 8 / 5;
+    font-size: 1.25em;
+    height: 50px;
+    width: 200px;
+}
+
+
+.rights-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-logo {
+    margin-block-start: 1em;
+}
+
+.rights {
+    margin-block-start: 0.5em;
+    font-family: montserrat-thin;
+    font-size: 19px;
+    font-weight: 100;
+    line-height: 1.2;
+    color: white;
+}
+
+.gallery-container {
+    grid-area: 3 / 2 / 4 / 3;
+    display: flex;
+    justify-content: center;
+}
+
+.gallery-grid {
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-rows: repeat(3, 13.75em);
+    grid-template-columns: repeat(auto-fill, 13.75em);
+    grid-gap: 1.5em;
 }
 
 .gallery-img {
     cursor: pointer;
-    height: 100px;
+    height: 13.75em;
+}
+
+.hidden {
+    display: none;
+}
+
+@media (max-width: 1076px) {
+    .grid-container {
+        grid-template-columns: 0px  1fr 0px;
+    }
+
+    .header-logo {
+        margin-inline-start: 2.5em;
+    }
+
+    .nav {
+        margin-inline-end: 2.5em;
+    }
+
+    .control-container {
+        margin-block-start: 1.875em;
+    }
+
+    .editor-container {
+        flex-direction: column;
+    }
 }

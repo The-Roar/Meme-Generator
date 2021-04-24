@@ -10,33 +10,49 @@
 </head>
 
 <body onload="onInit()">
-    <section class="header">
-        <div class="logo"></div>
-        <div class="nav"></div>
-    </section>
-    <section class="main-container">
-        <div class="editor-container">
+    <div class="grid-container">
+        <header></header>
+        <img src="img/logo.png" class="logo header-logo" onclick="onReturn()">
+        <nav class="nav">
+            <h3 class="nav-opt" onclick="onReturn()">Gallery</h3>
+            <div class="seperator"></div>
+            <h3 class="nav-opt">About</h3>
+        </nav>
+        <main>
             <div class="canvas-container">
                 <canvas height="height" width="100"></canvas>
             </div>
-            <div class="control-panel">
-                <input type="text" class="meme-text" onkeyup="onChangeMemeTxt(this)"></input>
-                <button class="txt-size" onclick="onChangeTxtSize(5)">A+</button>
-                <button class="txt-size" onclick="onChangeTxtSize(-5)">A-</button>
-                <button class="txt-pos" onclick="onChangeTxtPos(-5)">🢁</button>
-                <button class="txt-pos" onclick="onChangeTxtPos(5)">🢃</button>
-                <button class="txt-switch" onclick="onChangeSelectedLine()">⮃</button>
-                <button class="txt-add" onclick="onAddLine()">➕</button>
-                <button class="txt-remove" onclick="onRemoveLine()">🗑</button>
+            <div class="control-container">
+                <div class="control-grid">
+                    <input type="text" class="txt-input" placeholder="your text here"
+                        onkeyup="onChangeMemeTxt(this)"></input>
+                    <button class="btn-txt-switch" onclick="onChangeSelectedLine()">⮃</button>
+                    <button class="btn-txt-add" onclick="onAddLine()">➕</button>
+                    <button class="btn-txt-remove" onclick="onRemoveLine()">🗑</button>
+                    <button class="btn-size-up" onclick="onChangeTxtSize(5)">A+</button>
+                    <button class="btn-size-down" onclick="onChangeTxtSize(-5)">A-</button>
+                    <button class="btn-pos-up" onclick="onChangeTxtPos(-5)">🢁</button>
+                    <button class="btn-pos-down" onclick="onChangeTxtPos(5)">🢃</button>
+                    <button class="btn-align-left" onclick="onChangeTxtAlign('right')">🡸</button>
+                    <button class="btn-align-center" onclick="onChangeTxtAlign('center')">☰</button>
+                    <button class="btn-align-right" onclick="onChangeTxtAlign('left')">🡺</button>
+                    <input type="color" class="txt-color-stroke" onchange="onChangeTxtStroke(this.value)">
+                    <input type="color" class="txt-color-fill" value="#ffffff" onchange="onChangeTxtFill(this.value)">
+                    <button class="btn-download" onclick="onDownload()">Download Meme</button>
+                </div>
             </div>
-
-            <div class="gallery">
-                <img src="img/2.jpg" id="2" class="gallery-img" onclick="onChangeImg(this)">
-                <img src="img/3.jpg" id="3" class="gallery-img" onclick="onChangeImg(this)">
+        </main>
+        <div class="gallery-container">
+            <div class="gallery-grid">
             </div>
         </div>
-    </section>
-    <section class="footer"></section>
+        <footer>
+            <div class="rights-container">
+                <img src="img/logo.png" class=" logo footer-logo">
+                <p class="rights">all rights reserved 2019</p>
+            </div>
+        </footer>
+    </div>
 
     <script src="js/meme-service.js"></script>
     <script src="js/meme-controller.js"></script>
